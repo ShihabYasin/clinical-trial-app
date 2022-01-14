@@ -1,0 +1,6 @@
+DiseaseName ControlledCount GenericCount
+diabetes 0 0
+chronic_kidney_disease 0 0
+anemia 0 0
+heart_failure 0 0
+total_patient 0

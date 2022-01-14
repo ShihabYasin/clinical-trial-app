@@ -1,0 +1,1 @@
+2021-12-01 10:02:00.808841 diabetes: 1 chronic_kidney_disease: 1 anemia: 0 heart_failure: 0 category: Sham

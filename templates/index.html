@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Medical RnD App</title>
+</head>
+<body>
+
+<!--<div class="container" style="margin-top: 10px">-->
+<div class="container">
+<!--    <h3>Medical RnD</h3>-->
+    <hr>
+    <h3>Patient Feature(s) </h3>
+    <form action="/" method="post">
+        <div class="form-group">
+
+            <input type="checkbox" name="diabetes" value="diabetes">&nbsp; &nbsp; Diabetes<br>
+            <input type="checkbox" name="chronic_kidney_disease" value="chronic_kidney_disease">&nbsp; &nbsp; Chronic
+            Kidney Disease<br>
+            <input type="checkbox" name="anemia" value="anemia">&nbsp; &nbsp; Anemia<br>
+            <input type="checkbox" name="heart_failure" value="heart_failure">&nbsp; &nbsp; Heart Failure<br>
+
+            <br>
+            <button type="submit" class="btn btn-success">Add New Patient</button>
+            <!--            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+            <!--            <button type="button" class="btn btn-danger" onclick="deleteFunction()">Delete Last Patient</button>-->
+
+
+        </div>
+    </form>
+
+    <form action="/delete/" method="post">
+        <div class="form-group">
+            <button type="submit" class="btn btn-danger">Delete Last Patient</button>
+        </div>
+    </form>
+
+
+    {% if category_list == [] %}
+    <div class="alert alert-warning" role="alert">
+        No Category Available
+    </div>
+    {% else %}
+    <p style="color:black; background-color: #abdbe3;font-size:50px;">
+        {{ category_list[0] }}
+    </p>
+    {% endif %}
+
+    {% if todo_list == [] %}
+    <div class="alert alert-warning" role="alert">
+        No Category Available
+    </div>
+    {% else %}
+
+    <h3> Total Patient(s): {{ total_patient }} </h3><br>
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Disease Name</th>
+            <th scope="col">RIPC</th>
+            <th scope="col">Sham</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for todo in todo_list %}
+        <tr>
+            <td>{{ todo.name }}</td>
+            <td>{{ todo.generic }}</td>
+            <td>{{ todo.controlled }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+<script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+
+
+</script>
+
+</body>
+</html>
